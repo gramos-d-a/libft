@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gramos-d <gramos-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 20:32:36 by gramos-d          #+#    #+#             */
-/*   Updated: 2022/08/23 20:32:36 by gramos-d         ###   ########.fr       */
+/*   Created: 2022/10/28 14:30:54 by gramos-d          #+#    #+#             */
+/*   Updated: 2022/10/28 14:30:54 by gramos-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalnum(int c)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-    if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
-        return (1);
-    return (0);
+	char	*dest;
+
+	if (!s)
+		return (0);
+	if (ft_strlen(s) < start)
+		len = 0;
+	if (ft_strlen(s + start) < len)
+		len = ft_strlen(s + start);
+	if (!(dest = malloc(sizeof(char) * (len + 1))))
+		return (0);
+	ft_strlcpy(dest, s + start, len + 1);
+	return (dest);
 }
