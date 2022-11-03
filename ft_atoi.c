@@ -17,7 +17,7 @@ int		ft_atoi(const char *str)
 	size_t	num;
 	int				i;
 	int				np;
-
+	
 	np = 1;
 	i = 0;
 	num = 0;
