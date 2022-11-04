@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-int ft_charc(long x)
+int	ft_charc(long x)
 {
-	int i;
+	int	i;
 
 	i = 1;
-	if(x < 0)
+	if (x < 0)
 	{
 		x *= -1;
 		i++;
@@ -26,28 +26,30 @@ int ft_charc(long x)
 		x = x / 10;
 	return (i);
 }
-char *ft_itoa(int n)
+
+char	*ft_itoa(int n)
 {
-	char *dest;
-	int len;
-	long nb;
+	char	*dest;
+	int		len;
+	long	nb;
 
 	nb = n;
 	len = ft_charc(nb);
-	if(!(dest = malloc(sizeof(char) * len + 1)))
-		return(0);
+	dest = malloc(sizeof(char) * len + 1);
+	if (!dest)
+		return (0);
 	dest[len--] = '\0';
-	if(nb < 0)
+	if (nb < 0)
 	{
 		dest[0] = '-';
 		nb *= -1;
 	}
-	if(nb == 0)
+	if (nb == 0)
 		dest[0] = '0';
 	while (nb)
 	{
-		dest[len--] = nb % 10 + '0'; 
+		dest[len--] = nb % 10 + '0';
 		nb /= 10;
 	}
-	return(dest);
+	return (dest);
 }

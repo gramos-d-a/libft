@@ -12,48 +12,49 @@
 
 #include "libft.h"
 
-int ft_wc(char *s, char c)
+int	ft_wc(char *s, char c)
 {
-    int count;
-    int i;
-    
-    count = 0;
-    i = -1;
-    if(s[0] != c && s[0] != '\0')
-      count++;
-    while(s[++i])
+	int	count;
+	int	i;
+
+	count = 0;
+	i = -1;
+	if (s[0] != c && s[0] != '\0')
+		count++;
+	while (s[++i])
 	{
-        if(s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
-            count++;
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+			count++;
 	}
-	return(count);
+	return (count);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	size_t x;
-	size_t y;
-	size_t j;
-	size_t res;
-	char **split;
+	size_t	x;
+	size_t	y;
+	size_t	j;
+	size_t	res;
+	char	**split;
 
 	x = 0;
 	j = 0;
-	if(!s)
-		return(0);
-	res = ft_wc((char *)s, c);
-	if(!(split = malloc(sizeof (char*) * (res + 1))))
+	if (!s)
 		return (0);
-	while(j < res)
+	res = ft_wc((char *)s, c);
+	split = malloc(sizeof (char *) * (res + 1));
+	if (!split)
+		return (0);
+	while (j < res)
 	{
-		while(s[x] == c && s[x])
+		while (s[x] == c && s[x])
 			x++;
 		y = x;
 		while (s[y] != c && s[y])
 			y++;
-		split[j++]= ft_substr(s, x, y - x);
+		split[j++] = ft_substr(s, x, y - x);
 		x = y;
 	}
 	split[j] = 0;
-	return(split);
+	return (split);
 }

@@ -16,11 +16,10 @@ char	*ft_strnstr(const char *b, const char *l, size_t len)
 {
 	size_t	c;
 
-
 	if (*l == 0 || b == l)
 		return ((char *)b);
 	if (len == 0)
-		return(NULL);
+		return (NULL);
 	c = ft_strlen(l);
 	while (*b && c <= len--)
 	{
@@ -28,6 +27,5 @@ char	*ft_strnstr(const char *b, const char *l, size_t len)
 			return ((char *)b);
 		b++;
 	}
-
 	return (NULL);
 }
