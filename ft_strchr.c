@@ -21,7 +21,7 @@ char	*ft_strchr(const char *s, int c)
 		return (&str[ft_strlen(str)]);
 	while (*str)
 	{
-		if (c == *str)
+		if ((unsigned char)c == (unsigned char)*str)
 			return ((char *)str);
 		str++;
 	}

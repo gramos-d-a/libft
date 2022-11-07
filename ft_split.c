@@ -33,7 +33,7 @@ char	**ft_split(char const *s, char c)
 {
 	size_t	x;
 	size_t	y;
-	size_t	j;
+	int		j;
 	char	**split;
 
 	x = 0;
