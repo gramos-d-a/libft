@@ -14,16 +14,9 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*str;
-
-	str = (char *)s;
-	if (!c)
-		return (&str[ft_strlen(str)]);
-	while (*str)
-	{
-		if ((unsigned char)c == (unsigned char)*str)
-			return ((char *)str);
-		str++;
-	}
-	return ((char *)str);
+	while (*s && (unsigned char)*s != (unsigned char)c)
+		s++;
+	if ((unsigned char)*s != (unsigned char)c)
+		return (NULL);
+	return ((char)*s);
 }
