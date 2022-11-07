@@ -34,18 +34,16 @@ char	**ft_split(char const *s, char c)
 	size_t	x;
 	size_t	y;
 	size_t	j;
-	size_t	res;
 	char	**split;
 
 	x = 0;
 	j = 0;
 	if (!s)
 		return (0);
-	res = ft_wc((char *)s, c);
-	split = malloc(sizeof (char *) * (res + 1));
+	split = malloc(sizeof (char *) * (ft_wc((char *)s, c) + 1));
 	if (!split)
 		return (0);
-	while (j < res)
+	while (j < ft_wc((char *)s, c))
 	{
 		while (s[x] == c && s[x])
 			x++;
