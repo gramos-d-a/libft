@@ -60,6 +60,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_bzero(void *b, size_t n);
 
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(void *content);
