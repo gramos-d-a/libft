@@ -1,6 +1,6 @@
 NAME	=	libft.a
 
-CC	=	gcc
+CC	=	cc
 CFLAGS	=	-Wall -Wextra -Werror
 RM	=	rm -f
 
@@ -21,10 +21,6 @@ ft_lstmap.c
 B_OBJ =	$(B:.c=.o)
 
 all:	$(NAME)
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(B)
-	gcc -nostartfiles -shared -o libft.so $(OBJ) $(B_OBJ)
 	
 bonus:	$(B_OBJ)
 		ar rcs $(NAME) $(B_OBJ)
@@ -39,5 +35,3 @@ fclean:	clean
 			$(RM) $(NAME)
 
 re:	fclean $(NAME)
-
-.PHONY: all clean fclean re
